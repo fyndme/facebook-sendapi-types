@@ -1,0 +1,11 @@
+{
+  "name": "facebook-sendapi-types",
+  "version": "1.0.0",
+  "description": "Typscript types for Facebook's send api",
+  "main": "index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Adam Juhasz",
+  "license": "MIT"
+}
