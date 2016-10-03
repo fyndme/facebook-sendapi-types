@@ -93,6 +93,8 @@ export interface MessengerResponse {
 export interface WebhookMessageFields {
   mid: string;
   seq: number;
+  is_echo?: boolean;
+  metadata?: string;
 }
 
 export interface WebhookPayloadFields {
@@ -134,4 +136,13 @@ interface MessengerSettings {
   greeting?: {
     text: string,
   },
+}
+
+export interface WebhookCallback {
+  object: 'page';
+  entry: Array<{
+    id: string;
+    time: number;
+    messaging: Array<WebhookPayload>;
+  }>;
 }
