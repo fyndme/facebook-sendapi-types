@@ -102,7 +102,10 @@ export interface WebhookPayloadFields {
     id: string;
   };
   timestamp: number;
-  message: WebhookMessageFields;
+  message?: WebhookMessageFields;
+  postback?: {
+    payload: string;
+  };
 }
 
 export type WebhookPayload = WebhookPayloadFields & MessengerPayload;
