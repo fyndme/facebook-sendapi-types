@@ -106,6 +106,15 @@ export interface WebhookPayloadFields {
   postback?: {
     payload: string;
   };
+  read?: {
+    seq: number;
+    watermark: number;
+  };
+  delivery?: {
+    seq: number;
+    mids: Array<string>;
+    watermark: number;
+  };
 }
 
 export type WebhookPayload = WebhookPayloadFields & MessengerPayload;
