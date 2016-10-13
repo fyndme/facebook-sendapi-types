@@ -137,11 +137,11 @@ export interface FacebookUser {
   gender: string;
 }
 
-interface MessengerPostback {
+export interface MessengerPostback {
   payload: string,
 }
 
-interface MessengerSettings {
+export interface MessengerSettings {
   setting_type: string,
   thread_state?: string,
   call_to_actions?: Array<MessengerPostback> | Array<MessengerButton>,
