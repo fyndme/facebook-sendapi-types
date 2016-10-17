@@ -5,10 +5,12 @@ export interface MessengerQuickReply {
 }
 
 export interface MessengerButton {
-  type: string,
-  title: string,
-  payload?: string,
-  url?: string,
+  type: 'postback' | 'web_url';
+  title: string;
+  payload?: string;
+  url?: string;
+  webview_height_ratio?: 'compact' | 'tall' | 'full';
+  messenger_extensions?: boolean;
 }
 
 export interface MessengerItem {
@@ -141,7 +143,13 @@ export interface MessengerPostback {
   payload: string,
 }
 
-export interface MessengerSettings {
+export interface PersistentMenu {
+  setting_type: 'call_to_actions';
+  thread_state: 'existing_thread';
+  call_to_actions: Array<MessengerButton>;
+}
+
+export interface GeneralThreadSettings {
   setting_type: string,
   thread_state?: string,
   call_to_actions?: Array<MessengerPostback> | Array<MessengerButton>,
@@ -149,6 +157,8 @@ export interface MessengerSettings {
     text: string,
   },
 }
+
+export type MessengerSettings = PersistentMenu & GeneralThreadSettings;
 
 export interface WebhookCallback {
   object: 'page';
