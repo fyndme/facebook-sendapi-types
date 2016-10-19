@@ -69,7 +69,7 @@ export interface MessengerTemplateAttachement {
 }
 
 export interface MessengerMessage {
-  attachment?: MessengerTemplateAttachement & MessengerImageAttachment & MessengerAudioAttachment & MessengerVideoAttachment & MessengerFileAttachment,
+  attachment?: MessengerTemplateAttachement | MessengerImageAttachment | MessengerAudioAttachment | MessengerVideoAttachment | MessengerFileAttachment,
   text?: string,
   quick_replies?: Array<MessengerQuickReply>,
   metadata?: string,
