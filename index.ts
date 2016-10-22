@@ -68,8 +68,10 @@ export interface MessengerTemplateAttachement {
   payload: MessengerGenericPayload | MessengerButtonPayload;
 }
 
+export type MessengerAttachement = MessengerTemplateAttachement & MessengerImageAttachment & MessengerAudioAttachment & MessengerVideoAttachment & MessengerFileAttachment;
+
 export interface MessengerMessage {
-  attachment?: MessengerTemplateAttachement | MessengerImageAttachment | MessengerAudioAttachment | MessengerVideoAttachment | MessengerFileAttachment,
+  attachment?: MessengerAttachement
   text?: string,
   quick_replies?: Array<MessengerQuickReply>,
   metadata?: string,
@@ -97,6 +99,8 @@ export interface WebhookMessageFields {
   seq: number;
   is_echo?: boolean;
   metadata?: string;
+  app_id?: string;
+  attachments?: Array<MessengerAttachement>;
 }
 
 export interface WebhookPayloadFields {
