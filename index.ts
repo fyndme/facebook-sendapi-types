@@ -96,13 +96,19 @@ export interface MessengerResponse {
   message_id: string,
 }
 
+export interface EchoFields {
+  is_echo?: boolean;
+  attachments?: Array<MessengerAttachement>;
+  quick_reply?: {
+    payload: null;
+  };
+}
+
 export interface WebhookMessageFields {
   mid: string;
   seq: number;
-  is_echo?: boolean;
   metadata?: string;
   app_id?: string;
-  attachments?: Array<MessengerAttachement>;
 }
 
 export interface WebhookPayloadFields {
@@ -110,7 +116,7 @@ export interface WebhookPayloadFields {
     id: string;
   };
   timestamp: number;
-  message?: WebhookMessageFields;
+  message?: WebhookMessageFields & EchoFields;
   postback?: {
     payload: string;
   };
