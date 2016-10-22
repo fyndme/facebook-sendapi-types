@@ -63,9 +63,11 @@ export interface MessengerButtonPayload {
   buttons: Array<MessengerButton>,
 }
 
+export type MessengerTemplatePayload = MessengerGenericPayload & MessengerButtonPayload;
+
 export interface MessengerTemplateAttachement {
   type: "template";
-  payload: MessengerGenericPayload & MessengerButtonPayload;
+  payload: MessengerTemplatePayload;
 }
 
 export type MessengerAttachement = MessengerTemplateAttachement & MessengerImageAttachment & MessengerAudioAttachment & MessengerVideoAttachment & MessengerFileAttachment;
