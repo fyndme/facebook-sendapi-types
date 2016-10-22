@@ -1,6 +1,6 @@
 {
   "name": "facebook-sendapi-types",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "Typscript types for Facebook's send api",
   "main": "index.ts",
   "scripts": {
