@@ -63,14 +63,14 @@ export interface MessengerButtonPayload {
   buttons: Array<MessengerButton>,
 }
 
-export type MessengerTemplatePayload = MessengerGenericPayload & MessengerButtonPayload;
+export type MessengerTemplatePayload = MessengerGenericPayload | MessengerButtonPayload;
 
 export interface MessengerTemplateAttachement {
   type: "template";
   payload: MessengerTemplatePayload;
 }
 
-export type MessengerAttachement = MessengerTemplateAttachement & MessengerImageAttachment & MessengerAudioAttachment & MessengerVideoAttachment & MessengerFileAttachment;
+export type MessengerAttachement = MessengerTemplateAttachement | MessengerImageAttachment | MessengerAudioAttachment | MessengerVideoAttachment | MessengerFileAttachment;
 
 export interface MessengerMessage {
   attachment?: MessengerAttachement
@@ -170,7 +170,7 @@ export interface GeneralThreadSettings {
   },
 }
 
-export type MessengerSettings = PersistentMenu & GeneralThreadSettings;
+export type MessengerSettings = PersistentMenu | GeneralThreadSettings;
 
 export interface WebhookCallback {
   object: 'page';
