@@ -4,6 +4,12 @@ export interface MessengerQuickReply {
   payload: string,
 }
 
+export interface MessengerPostbackButton {
+  type: 'postback';
+  title: string;
+  payload: string;
+}
+
 export interface MessengerButton {
   type: 'postback' | 'web_url';
   title: string;
