@@ -1,7 +1,7 @@
 export interface MessengerQuickReply {
-  content_type: string,
-  title: string,
-  payload: string,
+  content_type: string;
+  title: string;
+  payload: string;
 }
 
 export interface MessengerPostbackButton {
@@ -10,31 +10,45 @@ export interface MessengerPostbackButton {
   payload: string;
 }
 
-export interface MessengerButton {
-  type: 'postback' | 'web_url';
+export interface MessengerWebButton {
+  type: 'web_url';
   title: string;
-  payload?: string;
-  url?: string;
+  url: string;
   webview_height_ratio?: 'compact' | 'tall' | 'full';
   messenger_extensions?: boolean;
+  fallback_url?: string;
+  webview_share_button?: 'hide';
 }
 
+export interface MessengerCallButton {
+  type: 'phone_number';
+  title: string;
+  payload: string;
+}
+
+export interface MessengerShareButton {
+  type: 'element_share';
+  share_contents?: any;
+}
+
+export type MessengerButton = MessengerPostbackButton | MessengerWebButton | MessengerCallButton | MessengerShareButton;
+
 export interface MessengerItem {
-  title: string,
-  subtitle?: string,
-  image_url?: string,
-  buttons?: Array<MessengerButton>,
+  title: string;
+  subtitle?: string;
+  image_url?: string;
+  buttons?: Array<MessengerButton>;
 }
 
 export interface MessengerImageAttachment {
-  type: "image";
+  type: 'image';
   payload: {
     url: string;
   };
 }
 
 export interface MessengerAudioAttachment {
-  type: "audio";
+  type: 'audio';
   payload: {
     url: string;
   };
