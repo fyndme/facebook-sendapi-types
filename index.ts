@@ -68,9 +68,19 @@ export interface MessengerFileAttachment {
   };
 }
 
+export interface MessengerStickerAttachement {
+  type: 'image';
+  payload: {
+    url: string;
+    sticker_id: number;
+  };
+}
+
 export interface MessengerTextMessage {
   text: string,
 }
+
+
 
 export interface MessengerGenericPayload {
   template_type: "generic",
@@ -90,13 +100,13 @@ export interface MessengerTemplateAttachement {
   payload: MessengerTemplatePayload;
 }
 
-export type MessengerAttachement = MessengerTemplateAttachement | MessengerImageAttachment | MessengerAudioAttachment | MessengerVideoAttachment | MessengerFileAttachment;
+export type MessengerAttachement = MessengerTemplateAttachement | MessengerImageAttachment | MessengerAudioAttachment | MessengerVideoAttachment | MessengerFileAttachment | MessengerStickerAttachement;
 
 export interface MessengerMessage {
-  attachment?: MessengerAttachement
-  text?: string,
-  quick_replies?: Array<MessengerQuickReply>,
-  metadata?: string,
+  attachment?: MessengerAttachement;
+  text?: string;
+  quick_replies?: Array<MessengerQuickReply>;
+  metadata?: string;
 }
 
 export type NotificationType = 'REGULAR' | 'SILENT_PUSH' | 'NO_PUSH';
@@ -131,12 +141,16 @@ export interface WebhookMessageFields {
   app_id?: string;
 }
 
+export interface StickerMessage {
+  sticker_id: number;
+}
+
 export interface WebhookPayloadFields {
   sender: {
     id: string;
   };
   timestamp: number;
-  message?: WebhookMessageFields & EchoFields;
+  message?: WebhookMessageFields & EchoFields & StickerMessage;
   postback?: {
     payload: string;
   };
